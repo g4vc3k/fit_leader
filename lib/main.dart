@@ -34,21 +34,23 @@ class _FitLeaderAppState extends State<FitLeaderApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'FitLeader',
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('FitLeader', style: TextStyle(color: Colors.white)),
-          backgroundColor: Colors.lightGreen[800],
+          title: const Text('FitLeader', style: TextStyle(color: Colors.green, fontWeight: FontWeight.w900, fontSize: 28)),
+          backgroundColor: Colors.white,
         ),
-        body: _pages[_selectedIndex], // Wyświetl odpowiednią stronę
+        body: _pages[_selectedIndex],
+        // Wyświetl odpowiednią stronę
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.lightGreen[800],
-          selectedItemColor: Colors.white,
+          backgroundColor: Colors.white,
+          selectedItemColor: Colors.green,
           selectedFontSize: 15,
-          unselectedItemColor: Colors.lightGreen[100],
+          unselectedItemColor: Colors.grey,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),

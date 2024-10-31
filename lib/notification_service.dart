@@ -37,4 +37,4 @@ Future<void> showNotification() async {
     'Czas na zdrowy nawyk: wypij wodę!', // Treść powiadomienia
     platformChannelSpecifics,
   );
-}
+}//

@@ -5,9 +5,12 @@ class Summary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Fetch the current theme mode
+    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
-      color: Colors.white,
-      padding: EdgeInsets.all(20),// Set the background color to green
+      color: isDarkMode ? Colors.white10 : Colors.white, // Adjust background color based on theme
+      padding: EdgeInsets.all(20),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -19,30 +22,30 @@ class Summary extends StatelessWidget {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Colors.green,
+                color: isDarkMode ? Colors.white : Colors.green, // Adjust text color based on theme
               ),
             ),
-            SizedBox(height: 20), // Add spacing between the text
-            Text("Poniedziałek"),
-            _buildProgressBar(10, 0.2), // Progress bar 1, 2 out of 10
+            SizedBox(height: 20),
+            Text("Poniedziałek", style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
+            _buildProgressBar(10, 0.2, isDarkMode), // Progress bar with dynamic color
             SizedBox(height: 10),
-            Text("Wtorek"),
-            _buildProgressBar(10, 0.5), // Progress bar 2, 5 out of 10
+            Text("Wtorek", style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
+            _buildProgressBar(10, 0.5, isDarkMode),
             SizedBox(height: 10),
-            Text("Środa"),
-            _buildProgressBar(10, 0.8), // Progress bar 3, 8 out of 10
+            Text("Środa", style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
+            _buildProgressBar(10, 0.8, isDarkMode),
             SizedBox(height: 10),
-            Text("Czwartek"),
-            _buildProgressBar(10, 1.0), // Progress bar 4, fully completed
+            Text("Czwartek", style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
+            _buildProgressBar(10, 1.0, isDarkMode),
             SizedBox(height: 10),
-            Text("Piątek"),
-            _buildProgressBar(10, 0.7), // Progress bar 5, 7 out of 10
+            Text("Piątek", style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
+            _buildProgressBar(10, 0.7, isDarkMode),
             SizedBox(height: 10),
-            Text("Sobota"),
-            _buildProgressBar(10, 0.3), // Progress bar 6, 3 out of 10
+            Text("Sobota", style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
+            _buildProgressBar(10, 0.3, isDarkMode),
             SizedBox(height: 10),
-            Text("Niedziela"),
-            _buildProgressBar(10, 0.9), // Progress bar 7, 9 out of 10
+            Text("Niedziela", style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
+            _buildProgressBar(10, 0.9, isDarkMode),
           ],
         ),
       ),
@@ -50,20 +53,23 @@ class Summary extends StatelessWidget {
   }
 
   // Helper function to build a progress bar
-  Widget _buildProgressBar(int parts, double value) {
+  Widget _buildProgressBar(int parts, double value, bool isDarkMode) {
     return Row(
       children: [
         Expanded(
           child: LinearProgressIndicator(
-            value: value, // Set the progress (value between 0.0 and 1.0)
-            backgroundColor: Colors.grey[300], // Inactive parts color
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.green), // Active part color
-            minHeight: 10, // Height of the progress bar
+            value: value,
+            backgroundColor: isDarkMode ? Colors.grey[600] : Colors.grey[300], // Background color changes in dark mode
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+            minHeight: 10,
           ),
         ),
         SizedBox(width: 10),
-        Text('${(value * parts).toInt()}/$parts', style: TextStyle(color: Colors.green)),
+        Text(
+          '${(value * parts).toInt()}/$parts',
+          style: TextStyle(color: isDarkMode ? Colors.white : Colors.green),
+        ),
       ],
     );
   }
-}//
+}

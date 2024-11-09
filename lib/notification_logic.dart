@@ -54,12 +54,15 @@ class NotificationLogic {
     print("Timezone set to: $timeZoneName");
   }
 
-  // Schedule notification with different IDs for each activity
-  Future<void> scheduleNotification(TimeOfDay time, int activityNumber) async {
+  // Schedule notification with unique ID for each activity and reminder number
+  Future<void> scheduleNotification(TimeOfDay time, int activityId, int reminderNumber) async {
     final now = DateTime.now();
     final today = DateTime(now.year, now.month, now.day, time.hour, time.minute);
     var scheduleDate = today.isAfter(now) ? today : today.add(const Duration(days: 1));
     final tzScheduleDate = tz.TZDateTime.from(scheduleDate, tz.local);
+
+    print("Scheduling water reminder at: ${scheduleDate.toString()}"); // Debugging print
+
 
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
     AndroidNotificationDetails(
@@ -73,10 +76,33 @@ class NotificationLogic {
     const NotificationDetails platformChannelSpecifics =
     NotificationDetails(android: androidPlatformChannelSpecifics);
 
+    // Generate unique notification ID using activityId and reminderNumber
+    int notificationId = activityId * 10 + reminderNumber;
+
+    String title;
+    String body;
+    switch (activityId) {
+      case 1:
+        title = 'Water Reminder';
+        body = 'Time to drink water!';
+        break;
+      case 2:
+        title = 'Healthy Eating Reminder';
+        body = 'Time to eat something healthy!';
+        break;
+      case 3:
+        title = 'Exercise Reminder';
+        body = 'Time to do some exercise!';
+        break;
+      default:
+        title = 'Reminder';
+        body = 'It\'s time!';
+    }
+
     await flutterLocalNotificationsPlugin.zonedSchedule(
-      activityNumber, // Unique ID for each notification
-      activityNumber == 1 ? 'Przypomnienie 1!' : 'Przypomnienie 2!',
-      activityNumber == 1 ? 'Czas napić się wody!' : 'Czas na ćwiczenia!',
+      notificationId,
+      title,
+      body,
       tzScheduleDate,
       platformChannelSpecifics,
       androidAllowWhileIdle: true,
@@ -84,4 +110,4 @@ class NotificationLogic {
       matchDateTimeComponents: DateTimeComponents.time,
     );
   }
-}//
+}

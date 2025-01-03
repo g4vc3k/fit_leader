@@ -83,15 +83,15 @@ class NotificationLogic {
     String body;
     switch (activityId) {
       case 1:
-        title = 'Water Reminder';
-        body = 'Time to drink water!';
+        title = 'Przypomnienie o zdrowym nawyku';
+        body = 'Pora napić się wody!';
         break;
       case 2:
-        title = 'Healthy Eating Reminder';
-        body = 'Time to eat something healthy!';
+        title = '🍎 Czas zjeść coś wartościowego! 🥕';
+        body = 'Przypomnienie o zdrowym nawyku';
         break;
       case 3:
-        title = 'Exercise Reminder';
+        title = 'Przypomnienie o zdrowym nawyku';
         body = 'Time to do some exercise!';
         break;
       default:

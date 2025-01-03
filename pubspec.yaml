@@ -34,6 +34,12 @@ dependencies:
   flutter_timezone: ^3.0.1
   shared_preferences: ^2.3.2
   permission_handler: ^11.3.1
+  change_app_package_name: ^1.4.0
+  firebase_core: ^3.9.0
+  firebase_auth: ^5.3.4
+  fluttertoast: ^8.2.10
+  google_sign_in: ^6.2.2
+  cloud_firestore: ^5.0.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -93,3 +99,19 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
 #
+
+  assets:
+    - lib/assets/avatars/avatar1.png
+    - lib/assets/avatars/avatar2.png
+    - lib/assets/avatars/avatar3.png
+    - lib/assets/avatars/avatar4.png
+    - lib/assets/avatars/avatar5.png
+    - lib/assets/avatars/avatar6.png
+    - lib/assets/avatars/avatar7.png
+    - lib/assets/avatars/avatar8.png
+    - lib/assets/avatars/avatar9.png
+    - lib/assets/stickers/sticker_placeholder0.png
+    - lib/assets/stickers/sticker_placeholder1.png
+    - lib/assets/stickers/sticker_placeholder2.png
+
+

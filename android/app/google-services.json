@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "809183801736",
+    "project_id": "fitleader-1",
+    "storage_bucket": "fitleader-1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809183801736:android:2dcbe43b81f796da208a3d",
+        "android_client_info": {
+          "package_name": "pl.gracke.fitleader"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809183801736-37fg2gqig9qb8nv0bracovseln7fnnru.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pl.gracke.fitleader",
+            "certificate_hash": "e6f129297210e4953881129b27cd1217cd2ed3d5"
+          }
+        },
+        {
+          "client_id": "809183801736-f13d9k5flbibidkdref57s9og2s9qdmt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBS7JmrfSLE0TQdaSv0wf_teBkmqDnehe0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809183801736-f13d9k5flbibidkdref57s9og2s9qdmt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "809183801736-73bq47t727aoi58p906eflhctn33m03p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "pl.gracke.fitleader"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
